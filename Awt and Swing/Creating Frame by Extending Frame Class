@@ -1,0 +1,14 @@
+import java.awt.*;
+public class myframe1 extends Frame
+{
+    myframe1(){
+		
+		setVisible(true);
+	    setSize(800,600);
+		setTitle("My Frame1");
+	}
+	public static void main(String[] args)
+	{
+		myframe1 o=new myframe1();
+    }   
+}

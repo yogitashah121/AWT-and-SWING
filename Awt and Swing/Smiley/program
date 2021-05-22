@@ -1,0 +1,44 @@
+import java.awt.*;
+import java.awt.event.*;
+
+
+class Drawsmile extends Frame
+{
+
+    @Override
+    public void paint(Graphics g) {
+     g.drawOval(300,150,300,300);
+	 g.setColor(Color.YELLOW);
+	 g.fillOval(301,151,298,298);
+	 g.setColor(Color.BLACK);
+	 g.drawOval(375,210,60,60);
+	 g.drawOval(475,210,60,60);
+	 g.setColor(Color.WHITE);
+	 g.fillOval(376,211,58,58);
+	 g.fillOval(476,211,58,58);
+	 g.setColor(Color.RED);
+	 g.drawArc(380,260,150,150,180,180);
+	 g.setColor(Color.BLACK);
+	 g.fillOval(393,215,25,25);
+	 g.fillOval(493,215,25,25);
+	  
+    }
+}
+
+class smile {
+    public static void main(String[] args)
+    {
+      Drawsmile f= new Drawsmile();
+      f.setTitle("New Frame");
+      f.setSize(900,600);
+      f.setVisible(true);
+      f.addWindowListener(new WindowAdapter() {
+          @Override
+          public void windowClosing(WindowEvent e) {
+              System.exit(0);
+          }
+      });
+
+    }
+
+}

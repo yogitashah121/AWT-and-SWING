@@ -1,0 +1,147 @@
+import java.awt.*;
+import java.awt.event.*;
+class paint extends Frame implements MouseListener,MouseMotionListener,ActionListener
+{
+	    int x,y;
+		Button b1,b2,b3,b4,b5,b6,b7,b8,b9;
+		Color current;
+		int r=0;
+		public paint(){
+		setVisible(true);
+		setTitle("WhiteBoard");
+	    setSize(800,600);
+		setLayout(null);
+		addWindowListener(new WindowAdapter(){
+		
+		public void windowClosing(WindowEvent b){
+		
+		System.exit(0);
+		}
+		
+		});
+		b1=new Button("RED");
+		b1.setVisible(true);
+		b1.setBackground(Color.RED);
+		b1.setForeground(Color.RED);
+		b1.setBounds(15,50,35,35);
+		b2=new Button("BLUE");
+		b2.setVisible(true);
+		b2.setBackground(Color.BLUE);
+		b2.setForeground(Color.BLUE);
+		b2.setBounds(15,100,35,35);
+		b3=new Button("GREEN");
+		b3.setVisible(true);
+		b3.setBackground(Color.GREEN);
+		b3.setForeground(Color.GREEN);
+		b3.setBounds(15,150,35,35);
+		b4=new Button("PINK");
+		b4.setVisible(true);
+		b4.setBackground(Color.PINK);
+		b4.setForeground(Color.PINK);
+		b4.setBounds(15,200,35,35);
+		b5=new Button("GRAY");
+		b5.setVisible(true);
+		b5.setBackground(Color.GRAY);
+		b5.setForeground(Color.GRAY);
+		b5.setBounds(15,250,35,35);
+		b6=new Button("BLACK");
+		b6.setVisible(true);
+		b6.setBackground(Color.BLACK);
+		b6.setForeground(Color.BLACK);
+		b6.setBounds(15,300,35,35);
+		b7=new Button("MAGENTA");
+		b7.setVisible(true);
+		b7.setBackground(Color.MAGENTA);
+		b7.setForeground(Color.MAGENTA);
+		b7.setBounds(15,350,35,35);
+		b8=new Button("YELLOW");
+		b8.setVisible(true);
+		b8.setBackground(Color.YELLOW);
+		b8.setForeground(Color.YELLOW);
+		b8.setBounds(15,400,35,35);
+		b9=new Button("Clear");
+		b9.setVisible(true);
+		b9.setBounds(15,450,35,35);
+		add(b1);
+		add(b2);
+		add(b3);
+		add(b4);
+		add(b5);
+		add(b6);
+		add(b7);
+		add(b8);
+		add(b9);
+		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+		b5.addActionListener(this);
+		b6.addActionListener(this);
+		b7.addActionListener(this);
+	    b8.addActionListener(this);
+		b9.addActionListener(this);
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+          Object o=e.getSource();
+		  Button b=(Button)o;
+		  Graphics g=this.getGraphics();
+			if(b==b1)
+			{current=Color.RED;
+			}  
+			else if(b==b2)
+			{current=Color.BLUE;
+			}  
+			else if(b==b3)
+			{current=Color.GREEN;
+			}  
+			else if(b==b4)
+			{current=Color.PINK;
+			}  
+			else if(b==b5)
+			{current=Color.GRAY;
+			}
+            else if(b==b6)
+			{current=Color.BLACK;
+			}	
+			else if(b==b7)
+			{current=Color.MAGENTA;
+			}	
+			else if(b==b8)
+			{current=Color.YELLOW;
+			}	
+             else if(b==b9)
+			{ repaint();
+			}				
+         }
+		public void mouseExited(MouseEvent m){}
+		public void mouseEntered(MouseEvent m){}
+		public void mouseReleased(MouseEvent m){}
+		public void mouseClicked(MouseEvent m){}
+		public void mouseMoved(MouseEvent m){}
+		public void mousePressed(MouseEvent m){
+		x=m.getX();
+        y=m.getY();		
+		}
+		public void mouseDragged(MouseEvent m){
+	    int lx=m.getX();
+        int ly=m.getY();
+		Graphics g=this.getGraphics();
+		g.setColor(current);
+        g.drawLine(x,y,lx,ly);
+        x=lx;
+        y=ly;	
+    }
+		
+		
+}
+public class prg
+{
+    public static void main(String[] args)
+	{
+		new paint();
+		
+    }   
+}

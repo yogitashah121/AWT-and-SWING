@@ -1,0 +1,53 @@
+import java.awt.*;
+import java.awt.event.*;
+
+
+class DrawHome extends Frame
+{
+
+    @Override
+    public void paint(Graphics g) {
+      g.drawRect(200,300,180,200);
+	  g.drawRect(380,300,330,200);
+	  g.setColor(Color.GRAY);
+	  g.fillRect(200,300,179,199);
+	  g.fillRect(380,300,329,199);
+	  g.setColor(Color.BLACK);
+	  g.drawRect(235,400,50,100);
+	  g.drawRect(288,400,50,100);
+	  g.drawRect(500,350,40,40);
+	  g.drawRect(543,350,40,40);
+	  g.drawRect(500,393,40,40);
+	  g.drawRect(543,393,40,40);
+	  g.drawLine(380,300,300,200);
+	  g.drawLine(710,300,630,200);
+	  g.drawLine(300,200,630,200);
+	  g.drawLine(300,200,200,300);
+	  g.setColor(Color.PINK);
+	  g.fillRect(235,400,50,100);
+	  g.fillRect(288,400,50,100);
+	  g.fillRect(500,350,40,40);
+	  g.fillRect(543,350,40,40);
+	  g.fillRect(500,393,40,40);
+	  g.fillRect(543,393,40,40);
+	  
+    }
+}
+
+class home {
+    public static void main(String[] args)
+    {
+      DrawHome f= new DrawHome();
+      f.setTitle("New Frame");
+      f.setSize(900,600);
+      f.setVisible(true);
+      f.addWindowListener(new WindowAdapter() {
+          @Override
+          public void windowClosing(WindowEvent e) {
+              System.exit(0);
+          }
+      });
+
+    }
+
+}

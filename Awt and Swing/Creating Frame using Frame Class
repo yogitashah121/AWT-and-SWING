@@ -1,0 +1,11 @@
+import java.awt.*;
+public class myframe
+{
+    public static void main(String[] args)
+	{
+		Frame o=new Frame("My Frame");
+		o.setVisible(true);
+	    o.setSize(800,600);
+		
+   }   
+}

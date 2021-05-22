@@ -1,0 +1,93 @@
+import java.awt.*;
+import java.awt.Color;
+import java.awt.event.*;
+
+public class Box implements ActionListener
+{      
+        Frame o;
+        Font f;
+		Label l3;
+		TextArea l2;
+		String temp;
+		Button c1,c2,c3,c4,c5;
+	public void actionPerformed(ActionEvent a){
+		Object v=a.getSource();
+		Button t=(Button)v;
+		if(t==c1){
+		    l2.setText(" ");
+	    }else
+			if(t==c2){
+			temp=l2.getText();
+		    l2.setText(" ");
+	    }
+		else
+			if(t==c3){
+		    l2.setText(temp);
+        }
+		else
+			if(t==c4){
+		    l2.setEditable(false);
+        }
+		else
+			if(t==c5){
+		    l2.setEditable(true);
+        }
+	}
+   public Box()
+   {
+	    o=new Frame();
+         o.setVisible(true);
+         o.setSize(800,600);		
+         o.setBackground(Color.PINK);		 
+         o.addWindowListener(new WindowAdapter(){
+		public void windowClosing(WindowEvent e){
+		System.exit(0);
+			} 		 
+		 });
+		o.setLayout(null); 
+		f=new Font("Seriff",Font.ITALIC,25);
+		
+		l3=new Label("Type your Thoughts",Label.LEFT); 
+		l3.setVisible(true);
+		l3.setBounds(100,215,280,40);
+		l3.setFont(f);
+		l2=new TextArea(); 
+		l2.setVisible(true);
+		l2.setBounds(100,255,300,200);
+		l2.setFont(f);
+		c1=new Button("Clear Box");
+		c2=new Button("Hide Text");
+	    c3=new Button("Show Text");
+		c4=new Button("Lock Box");
+		c5=new Button("Unlock Box");
+		c1.setBounds(450,210,150,50);
+		c2.setBounds(450,260,150,50);
+		c3.setBounds(450,310,150,50);
+		c4.setBounds(450,360,150,50);
+		c5.setBounds(450,410,150,50);
+		c1.setFont(f);
+		c2.setFont(f);
+		c3.setFont(f);
+		c4.setFont(f);
+		c5.setFont(f);
+		c1.addActionListener(this);
+		c2.addActionListener(this);
+		c3.addActionListener(this);
+	    c4.addActionListener(this);
+		c5.addActionListener(this);
+	   
+		o.add(l3);
+		o.add(l2);
+		o.add(c1);
+		o.add(c2);
+		o.add(c3);
+		o.add(c4);
+		o.add(c5);
+	
+	
+}
+    public static void main(String[] args)
+    {
+      new Box();	
+	}
+}

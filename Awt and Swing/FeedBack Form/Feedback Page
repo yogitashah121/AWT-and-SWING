@@ -1,0 +1,105 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class feedback
+{  
+   public feedback()
+   {
+	     Frame o=new Frame("Feedback Form");
+         o.setVisible(true);
+         o.setSize(800,600);		 
+         o.addWindowListener(new WindowAdapter(){
+		public void windowClosing(WindowEvent e){
+		System.exit(0);
+			} 		 
+		 });
+		o.setLayout(null); 
+		Font f=new Font("Times New Roman",Font.ITALIC,23);
+		Font f1=new Font("Times New Roman",Font.ITALIC,20);
+		Label l1=new Label("Name",Label.LEFT);
+		l1.setVisible(true);
+		l1.setBounds(200,105,110,40);
+		l1.setFont(f);
+		Label l2=new Label("Mobile",Label.LEFT); 
+		l2.setVisible(true);
+		l2.setBounds(200,155,110,40);
+		l2.setFont(f);
+		Label l3=new Label("Gender",Label.LEFT); 
+		l3.setVisible(true);
+		l3.setBounds(200,205,110,40);
+		l3.setFont(f);
+		Label l4=new Label("Feedback",Label.LEFT); 
+		l4.setVisible(true);
+		l4.setBounds(200,305,110,40);
+		l4.setFont(f);
+		Label l5=new Label(); 
+		l5.setVisible(true);
+		l5.setBounds(360,250,220,40);
+		l5.setFont(f);
+		TextField t1=new TextField();
+		t1.setVisible(true);
+		t1.setBounds(360,110,230,30);
+		t1.setFont(f1);
+		TextField t2=new TextField();
+		t2.setVisible(true);
+		t2.setBounds(360,160,230,30);
+		t2.setFont(f1);
+		CheckboxGroup g1=new CheckboxGroup();
+		Checkbox c1=new Checkbox("Male",g1,false);
+		Checkbox c2=new Checkbox("Female",g1,false);
+		Checkbox c3=new Checkbox("Others",g1,false);
+		c1.setBounds(360,210,100,30);
+		c2.setBounds(460,210,100,30);
+		c3.setBounds(560,210,100,30);
+		c1.setFont(f1);
+		c2.setFont(f1);
+		c3.setFont(f1);
+		c1.addItemListener(new ItemListener(){
+		  
+		  public void itemStateChanged(ItemEvent v){
+	      l5.setText("Male is Selected");	
+			 }				 	
+	   });
+		 c2.addItemListener(new ItemListener(){
+		
+		  public void itemStateChanged(ItemEvent v){
+	    	l5.setText(" Female is Selected");
+		  }	
+			
+		});
+		c3.addItemListener(new ItemListener(){
+	    public void itemStateChanged(ItemEvent v){
+	          l5.setText("Others is Selected");
+            }	
+	    });
+   
+ 
+		TextArea a1=new TextArea();
+		a1.setVisible(true);
+		a1.setBounds(360,310,230,180);
+		a1.setFont(f1);
+		Button b1=new Button("Submit");
+		b1.setVisible(true);
+		b1.setBounds(340,530,100,40);
+		b1.setFont(f);
+		
+		o.add(l1);
+		o.add(l2);
+		o.add(l3);
+		o.add(l4);
+		o.add(l5);
+		o.add(t1);
+		o.add(t2);
+		o.add(a1);
+		o.add(c1);
+		o.add(c2);
+		o.add(c3);
+		o.add(b1);
+	
+	
+}
+    public static void main(String[] args)
+    {
+      new feedback();	
+	}
+}

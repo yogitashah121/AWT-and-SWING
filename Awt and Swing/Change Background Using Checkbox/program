@@ -1,0 +1,96 @@
+import java.awt.*;
+import java.awt.Color;
+import java.awt.event.*;
+
+public class checkbox implements ItemListener
+{       Frame o;
+        Font f;
+	Label l3;
+	CheckboxGroup g1;
+	Checkbox c1,c2,c3,c4,c5;
+	public void Changebg(Color c){
+	o.setBackground(c);
+         c1.setBackground(c);
+         c2.setBackground(c);
+         c3.setBackground(c);	
+         l3.setBackground(c);
+         c4.setBackground(c);
+	c5.setBackground(c);
+			
+	}
+   	public void itemStateChanged(ItemEvent ie){
+		Object obj=ie.getSource();
+        Checkbox t=(Checkbox)obj;		
+	    if(t==c1){
+		  Changebg(Color.RED);	 
+	    }else
+			if(t==c2){
+		  Changebg(Color.BLUE);	 
+	    }
+		else
+			if(t==c3){
+		  Changebg(Color.GREEN);
+        }
+		else
+			if(t==c4){
+		  Changebg(Color.ORANGE);
+        }
+		else
+			if(t==c5){
+		  Changebg(Color.PINK);
+        }
+   }
+   checkbox()
+   {
+	    o=new Frame("Background Changer");
+         o.setVisible(true);
+         o.setSize(800,600);		 
+         o.addWindowListener(new WindowAdapter(){
+		public void windowClosing(WindowEvent e){
+		System.exit(0);
+			} 		 
+		 });
+		o.setLayout(null); 
+		f=new Font("Times New Roman",Font.ITALIC,18);
+		
+		l3=new Label("Select Background",Label.LEFT); 
+		l3.setVisible(true);
+		l3.setBounds(200,205,180,40);
+		l3.setFont(f);
+		
+	    g1=new CheckboxGroup();
+		c1=new Checkbox("RED",g1,false);
+		c2=new Checkbox("BLUE",g1,false);
+	    c3=new Checkbox("GREEN",g1,false);
+		 c4=new Checkbox("ORANGE",g1,false);
+		  c5=new Checkbox("PINK",g1,false);
+		c1.setBounds(380,210,100,30);
+		c2.setBounds(380,260,100,30);
+		c3.setBounds(380,310,100,30);
+		c4.setBounds(380,360,100,30);
+		c5.setBounds(380,410,100,30);
+		c1.setFont(f);
+		c2.setFont(f);
+		c3.setFont(f);
+		c4.setFont(f);
+		c5.setFont(f);
+		c1.addItemListener(this);
+		c2.addItemListener(this);
+		c3.addItemListener(this);
+	    c4.addItemListener(this);
+		c5.addItemListener(this);
+	   
+		o.add(l3);
+		o.add(c1);
+		o.add(c2);
+		o.add(c3);
+		o.add(c4);
+		o.add(c5);
+	
+	
+}
+    public static void main(String[] args)
+    {
+      new checkbox();	
+}
+}
